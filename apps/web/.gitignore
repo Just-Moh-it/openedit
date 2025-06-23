@@ -50,3 +50,5 @@ next-env.d.ts
 
 # Other
 dev-dist
+.tanstack
+.nitro
