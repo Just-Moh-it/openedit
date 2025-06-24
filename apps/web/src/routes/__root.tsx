@@ -26,12 +26,12 @@ export const Route = createRootRoute({
       },
       ...seo({
         url: "https://openeditapp.com",
-        title: "OpenEdit",
+        title: "OpenEdit - The open source Premiere Pro alternative",
         description:
-          "OpenEdit is a platform for creating and sharing AI-powered documents.",
+          "A modern take on video editing built for the web. OpenEdit is a free and open source video editor that allows you to edit videos with a modern interface and a focus on simplicity.",
         image: "/openedit-og.png",
         keywords:
-          "OpenEdit, Open Source, Code Editor, AI, Document, Collaboration",
+          "OpenEdit, Open Source, Code Editor, AI, Document, Collaboration, Video Editing, Premiere Pro Alternative",
       }),
     ],
     links: [
