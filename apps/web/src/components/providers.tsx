@@ -1,7 +1,7 @@
+import { clientEnv } from "@/lib/env/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PostHogProvider } from "posthog-js/react";
 import { useState } from "react";
-import { clientEnv } from "@/lib/env/client";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	const [queryClient] = useState(
@@ -12,8 +12,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
 						staleTime: 60 * 1000, // 1 minute
 						retry: (failureCount, error) => {
 							// Don't retry on 4xx errors
-							if (error instanceof Error && error.message.includes("4")) {
-								return false;
+							if (error && typeof error === "object" && "status" in error) {
+								const status = error.status as number;
+								if (status >= 400 && status < 500) {
+									return false;
+								}
 							}
 							return failureCount < 3;
 						},

@@ -1,5 +1,3 @@
-// import so build fails if envs are not set
-// import "./src/lib/env/client";
 // Note: Server env validation moved to runtime to avoid dev server issues
 
 import tailwindcss from "@tailwindcss/vite";
