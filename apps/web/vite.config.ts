@@ -1,6 +1,6 @@
 // import so build fails if envs are not set
-import "@/lib/env/client";
-import "@/lib/env/server";
+import "./src/lib/env/client";
+import "./src/lib/env/server";
 
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
