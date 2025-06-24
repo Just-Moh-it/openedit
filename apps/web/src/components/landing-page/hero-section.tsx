@@ -1,3 +1,6 @@
+import { WaitlistCount } from "@/components/waitlist-count";
+import { WaitlistForm } from "@/components/waitlist-form";
+
 export const HeroSection = () => {
 	return (
 		<section className="py-16 lg:py-24">
@@ -13,6 +16,11 @@ export const HeroSection = () => {
 							customizable. Cloud based file saving, and AI features that let
 							you get to a V1 draft in no time.
 						</p>
+					</div>
+
+					<div className="mt-8 space-y-4">
+						<WaitlistForm />
+						<WaitlistCount />
 					</div>
 				</div>
 			</div>
