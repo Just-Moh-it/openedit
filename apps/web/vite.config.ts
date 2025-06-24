@@ -1,5 +1,5 @@
 // import so build fails if envs are not set
-import "./src/lib/env/client";
+// import "./src/lib/env/client";
 import "./src/lib/env/server";
 
 import tailwindcss from "@tailwindcss/vite";

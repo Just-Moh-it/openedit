@@ -1,5 +1,6 @@
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
+import { seo } from "@/lib/seo";
 import "@fontsource/ibm-plex-mono";
 import {
   createRootRouteWithContext,
@@ -21,33 +22,14 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
-      {
+      ...seo({
         title: "OpenEdit",
-      },
-      {
-        property: "og:image",
-        content: "/openedit-og.png",
-      },
-      {
-        property: "og:image:type",
-        content: "image/png",
-      },
-      {
-        property: "og:image:width",
-        content: "1200",
-      },
-      {
-        property: "og:image:height",
-        content: "630",
-      },
-      {
-        name: "twitter:card",
-        content: "summary_large_image",
-      },
-      {
-        name: "twitter:image",
-        content: "/openedit-og.png",
-      },
+        description:
+          "OpenEdit is a platform for creating and sharing AI-powered documents.",
+        image: "/openedit-og.png",
+        keywords:
+          "OpenEdit, Open Source, Code Editor, AI, Document, Collaboration",
+      }),
     ],
     links: [
       {
