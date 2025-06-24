@@ -1,4 +1,4 @@
-![OpenEdit - The open source Premiere Pro alternative](https://github.com/user-attachments/assets/e6416610-a4f7-4722-9e36-27fe24be963c)
+<img src="https://github.com/user-attachments/assets/e6416610-a4f7-4722-9e36-27fe24be963c" alt="OpenEdit - The open source Premiere Pro alternative" width="1500" >
 
 ## Getting Started
 

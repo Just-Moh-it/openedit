@@ -23,6 +23,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
+        url: "https://openeditapp.com",
         title: "OpenEdit",
         description:
           "OpenEdit is a platform for creating and sharing AI-powered documents.",
