@@ -3,7 +3,7 @@ import { WaitlistForm } from "@/components/waitlist-form";
 
 export const HeroSection = () => {
 	return (
-		<section className="py-16 lg:py-24">
+		<section className="pt-16 lg:pt-24">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="max-w-4xl">
 					<h1 className="mb-8 animate-fade-in font-bold font-sans text-4xl/tight uppercase leading-tight lg:text-6xl">
