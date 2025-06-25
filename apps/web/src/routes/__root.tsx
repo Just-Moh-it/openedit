@@ -1,18 +1,20 @@
+/// <reference types="vite/client" />
+
+import { DefaultCatchBoundary } from "@/components/default-catch-boundary";
+import { NotFound } from "@/components/not-found";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { seo } from "@/lib/seo";
-import "@fontsource/ibm-plex-mono";
+import appCss from "@/styles/app.css?url";
 import {
-  createRootRouteWithContext,
+  createRootRoute,
   HeadContent,
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
-import appCss from "../index.css?url";
+import type * as React from "react";
 
-export type RouterAppContext = {};
-
-export const Route = createRootRouteWithContext<RouterAppContext>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
@@ -33,22 +35,48 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
       }),
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      // {
+      //   rel: "apple-touch-icon",
+      //   sizes: "180x180",
+      //   href: "/apple-touch-icon.png",
+      // },
+      // {
+      //   rel: "icon",
+      //   type: "image/png",
+      //   sizes: "32x32",
+      //   href: "/favicon-32x32.png",
+      // },
       {
         rel: "icon",
         type: "image/png",
+        // sizes: "16x16",
         href: "/favicon.png",
       },
+      // { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
+      // { rel: "icon", href: "/favicon.ico" },
     ],
   }),
-
-  component: RootDocument,
+  errorComponent: (props) => {
+    return (
+      <RootDocument>
+        <DefaultCatchBoundary {...props} />
+      </RootDocument>
+    );
+  },
+  notFoundComponent: () => <NotFound />,
+  component: RootComponent,
 });
 
-function RootDocument() {
+function RootComponent() {
+  return (
+    <RootDocument>
+      <Outlet />
+    </RootDocument>
+  );
+}
+
+function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -56,9 +84,8 @@ function RootDocument() {
       </head>
       <Providers>
         <body className="bg-background font-display text-foreground">
-          <Outlet />
+          {children}
           <Toaster richColors />
-          {/* <TanStackRouterDevtools position="bottom-left" /> */}
           <Scripts />
         </body>
       </Providers>
