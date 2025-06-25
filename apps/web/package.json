@@ -52,7 +52,7 @@
 		"@testing-library/react": "^16.2.0",
 		"@types/react": "^19.0.12",
 		"@types/react-dom": "^19.0.4",
-		"@vitejs/plugin-react": "^4.5.2",
+		"@vitejs/plugin-react": "^4.6.0",
 		"drizzle-kit": "^0.31.2",
 		"jsdom": "^26.0.0",
 		"typescript": "^5.7.2",
