@@ -5,7 +5,7 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": ["dist/**"],
+			"outputs": [".vercel/output/**", "dist/**"],
 			"env": [
 				"DATABASE_URL",
 				"UPSTASH_REDIS_REST_URL",
