@@ -26,8 +26,5 @@
 	"workspaces": [
 		"apps/*",
 		"packages/*"
-	],
-	"dependencies": {
-		"posthog-js": "^1.255.1"
-	}
+	]
 }
