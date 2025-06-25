@@ -1,17 +1,16 @@
 /// <reference types="vite/client" />
 
+import { DefaultCatchBoundary } from "@/components/default-catch-boundary";
+import { NotFound } from "@/components/not-found";
+import { Providers } from "@/components/providers";
+import { Toaster } from "@/components/ui/sonner";
+import { seo } from "@/lib/seo";
 import {
 	createRootRoute,
 	HeadContent,
 	Outlet,
 	Scripts,
-tanstackreactrouter
-	createtype *oasReactreact
-	HeadContDefaultCatchBoundarydefault-catch-boundary
-	Outlet,NotFoundnot-found
-	Scripts,Providerscomponentsproviders
-tanstack Toaster tanstack tcomponents/ui/sonnerponents/ui/sonnerponents/ui/sonnerponents/ui/sonnerponents/ui/sonner";
-import {}seoi}/lib/se@/lib/seo
+} from "@tanstack/react-router";
 import appCss from "../index.css?url";
 
 export const Route = createRootRoute({
