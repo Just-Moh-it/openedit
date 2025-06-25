@@ -5,7 +5,14 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": ["dist/**"]
+			"outputs": [".vercel/output/**", "dist/**"],
+			"env": [
+				"DATABASE_URL",
+				"UPSTASH_REDIS_REST_URL",
+				"UPSTASH_REDIS_REST_TOKEN",
+				"VITE_PUBLIC_POSTHOG_KEY",
+				"VITE_PUBLIC_POSTHOG_HOST"
+			]
 		},
 		"lint": {
 			"dependsOn": ["^lint"]
