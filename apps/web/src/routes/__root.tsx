@@ -5,6 +5,7 @@ import { NotFound } from "@/components/not-found";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { seo } from "@/lib/seo";
+import "@fontsource/ibm-plex-mono";
 import {
 	createRootRoute,
 	HeadContent,
