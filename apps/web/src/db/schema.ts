@@ -1,10 +1,10 @@
-import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
-export const waitlist = pgTable("waitlist", {
-	id: text("id").primaryKey().notNull(),
-	email: text("email").notNull().unique(),
-	createdAt: timestamp("created_at").notNull(),
+export const waitlistUsersTable = pgTable("waitlist", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  email: text("email").notNull().unique(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-export type Waitlist = typeof waitlist.$inferSelect;
-export type NewWaitlist = typeof waitlist.$inferInsert;
+export type SelectedWaitlistUser = typeof waitlistUsersTable.$inferSelect;
+export type InsertWaitlistUser = typeof waitlistUsersTable.$inferInsert;
