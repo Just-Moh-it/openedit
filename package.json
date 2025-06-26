@@ -23,7 +23,7 @@
 		"dev:web": "turbo -F web dev",
 		"dev:server": "turbo -F server dev",
 		"format:write": "biome format --write .",
-		"format:check": "biome format --check ."
+		"format:check": "biome format ."
 	},
 	"workspaces": [
 		"apps/*",
