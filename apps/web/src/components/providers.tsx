@@ -1,9 +1,9 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { clientEnv } from "@/lib/env/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PostHogProvider } from "posthog-js/react";
 import { useState } from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { clientEnv } from "@/lib/env/client";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(

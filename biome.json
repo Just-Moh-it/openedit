@@ -9,15 +9,32 @@
 		"ignoreUnknown": false,
 		"includes": [
 			"**",
+			"!**/node_modules",
+			"!**/.git",
 			"!**/.next",
 			"!**/dist",
+			"!**/build",
+			"!**/out",
+			"!**/coverage",
 			"!**/.turbo",
 			"!**/dev-dist",
 			"!**/.zed",
 			"!**/.vscode",
+			"!**/.idea",
 			"!**/routeTree.gen.ts",
 			"!**/src-tauri",
-			"!**/.nuxt"
+			"!**/.nuxt",
+			"!**/.env",
+			"!**/.env.*",
+			"!**/package-lock.json",
+			"!**/bun.lock",
+			"!**/yarn.lock",
+			"!**/pnpm-lock.yaml",
+			"!**/.DS_Store",
+			"!**/Thumbs.db",
+			"!**/drizzle/**/*.sql",
+			"!**/drizzle/meta/**",
+			"!**/.vercel"
 		]
 	},
 	"formatter": {

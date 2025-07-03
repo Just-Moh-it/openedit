@@ -21,7 +21,9 @@
 		"check-types": "turbo check-types",
 		"dev:native": "turbo -F native dev",
 		"dev:web": "turbo -F web dev",
-		"dev:server": "turbo -F server dev"
+		"dev:server": "turbo -F server dev",
+		"format:write": "biome format --write .",
+		"format:check": "biome format ."
 	},
 	"workspaces": [
 		"apps/*",
