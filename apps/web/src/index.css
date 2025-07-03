@@ -21,26 +21,39 @@ body {
 }
 
 .scrollGradient {
-  background: 
-    linear-gradient(#ffffff 33%, rgba(255,255,255, 0)),
-    linear-gradient(rgba(255,255,255, 0), #ffffff 66%) 0 100%,
-    radial-gradient(farthest-side at 50% 0, rgba(34,34,34, 0.5), rgba(0,0,0,0)),
-    radial-gradient(farthest-side at 50% 100%, rgba(34,34,34, 0.5), rgba(0,0,0,0)) 0 100%;
-  background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-attachment: local, local, scroll, scroll;
-  background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+	background:
+		linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+		linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+		radial-gradient(
+			farthest-side at 50% 0,
+			rgba(34, 34, 34, 0.5),
+			rgba(0, 0, 0, 0)
+		),
+		radial-gradient(
+			farthest-side at 50% 100%,
+			rgba(34, 34, 34, 0.5),
+			rgba(0, 0, 0, 0)
+		)
+		0 100%;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-attachment: local, local, scroll, scroll;
+	background-size:
+		100% 45px,
+		100% 45px,
+		100% 15px,
+		100% 15px;
 }
 
 .remotion-player-jsx,
 .remotion-player-jsx > div:first-child,
 .__remotion-player,
 div:has(> .__remotion-player) {
-  overflow: visible !important;
+	overflow: visible !important;
 }
 
 .__remotion-player > div:first-child {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 :root {

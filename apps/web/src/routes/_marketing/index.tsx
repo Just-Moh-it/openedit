@@ -5,16 +5,16 @@ import { HighlightSection } from "@/features/landing-page/components/highlight-s
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_marketing/")({
-  component: RouteComponent,
+	component: RouteComponent,
 });
 
 function RouteComponent() {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <HeroSection />
-      <FeatureColumns />
-      <HighlightSection />
-    </div>
-  );
+	return (
+		<div className="flex min-h-screen flex-col">
+			<Header />
+			<HeroSection />
+			<FeatureColumns />
+			<HighlightSection />
+		</div>
+	);
 }

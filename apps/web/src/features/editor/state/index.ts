@@ -6,17 +6,17 @@ import { InputPropsFromStore } from "@/features/editor/state/input-props";
 import { Playback as StorePlayback } from "@/features/editor/state/playback";
 
 export const Store = t.model("Store", {
-  inputProps: InputPropsFromStore,
-  playback: StorePlayback,
-  editor: StoreEditor,
+	inputProps: InputPropsFromStore,
+	playback: StorePlayback,
+	editor: StoreEditor,
 });
 
 export function useStore() {
-  const store = useContext(MSTContext);
+	const store = useContext(MSTContext);
 
-  if (!store) {
-    throw new Error("useStore must be used within a StoreProvider");
-  }
+	if (!store) {
+		throw new Error("useStore must be used within a StoreProvider");
+	}
 
-  return store;
+	return store;
 }

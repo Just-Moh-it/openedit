@@ -3,15 +3,15 @@ import { MSTContextProvider } from "@/features/editor/state/context";
 import type { SavedInputProps } from "@/features/editor/state/input-props";
 
 export const StoreProvider = ({
-  children,
-  savedInputProps,
+	children,
+	savedInputProps,
 }: {
-  children: React.ReactNode;
-  savedInputProps: SavedInputProps;
+	children: React.ReactNode;
+	savedInputProps: SavedInputProps;
 }) => {
-  const store = Store.create({
-    inputProps: savedInputProps,
-  });
+	const store = Store.create({
+		inputProps: savedInputProps,
+	});
 
-  return <MSTContextProvider value={store}>{children}</MSTContextProvider>;
+	return <MSTContextProvider value={store}>{children}</MSTContextProvider>;
 };
