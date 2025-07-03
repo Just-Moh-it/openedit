@@ -16,21 +16,48 @@ body {
 	}
 }
 
+*:not([class*="select-"], [class*="select-"] *, form, input, textarea) {
+	user-select: none;
+}
+
+.scrollGradient {
+  background: 
+    linear-gradient(#ffffff 33%, rgba(255,255,255, 0)),
+    linear-gradient(rgba(255,255,255, 0), #ffffff 66%) 0 100%,
+    radial-gradient(farthest-side at 50% 0, rgba(34,34,34, 0.5), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 50% 100%, rgba(34,34,34, 0.5), rgba(0,0,0,0)) 0 100%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+}
+
+.remotion-player-jsx,
+.remotion-player-jsx > div:first-child,
+.__remotion-player,
+div:has(> .__remotion-player) {
+  overflow: visible !important;
+}
+
+.__remotion-player > div:first-child {
+  overflow: hidden;
+}
+
 :root {
 	--radius: 0.625rem;
-	--background: var(--color-orange-50);
+	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
-	--primary: var(--color-orange-600);
+	--primary: oklch(0.205 0 0);
 	--primary-foreground: oklch(0.985 0 0);
 	--secondary: oklch(0.97 0 0);
 	--secondary-foreground: oklch(0.205 0 0);
 	--muted: oklch(0.97 0 0);
 	--muted-foreground: oklch(0.556 0 0);
-	--accent: var(--color-orange-600);
+	--accent: oklch(0.97 0 0);
 	--accent-foreground: oklch(0.205 0 0);
 	--destructive: oklch(0.577 0.245 27.325);
 	--border: oklch(0.922 0 0);

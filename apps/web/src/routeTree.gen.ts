@@ -9,50 +9,168 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as MarketingRouteRouteImport } from './routes/_marketing/route'
+import { Route as EditorRouteRouteImport } from './routes/_editor/route'
+import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
+import { Route as MarketingIndexRouteImport } from './routes/_marketing/index'
+import { Route as DashboardProjectsRouteImport } from './routes/_dashboard/projects'
+import { Route as EditorEditorProjectIdRouteImport } from './routes/_editor/editor.$projectId'
 
-const IndexRoute = IndexRouteImport.update({
+const MarketingRouteRoute = MarketingRouteRouteImport.update({
+  id: '/_marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditorRouteRoute = EditorRouteRouteImport.update({
+  id: '/_editor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRouteRoute = DashboardRouteRouteImport.update({
+  id: '/_dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingIndexRoute = MarketingIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => MarketingRouteRoute,
+} as any)
+const DashboardProjectsRoute = DashboardProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const EditorEditorProjectIdRoute = EditorEditorProjectIdRouteImport.update({
+  id: '/editor/$projectId',
+  path: '/editor/$projectId',
+  getParentRoute: () => EditorRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/projects': typeof DashboardProjectsRoute
+  '/': typeof MarketingIndexRoute
+  '/editor/$projectId': typeof EditorEditorProjectIdRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/projects': typeof DashboardProjectsRoute
+  '/': typeof MarketingIndexRoute
+  '/editor/$projectId': typeof EditorEditorProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_dashboard': typeof DashboardRouteRouteWithChildren
+  '/_editor': typeof EditorRouteRouteWithChildren
+  '/_marketing': typeof MarketingRouteRouteWithChildren
+  '/_dashboard/projects': typeof DashboardProjectsRoute
+  '/_marketing/': typeof MarketingIndexRoute
+  '/_editor/editor/$projectId': typeof EditorEditorProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/projects' | '/' | '/editor/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/projects' | '/' | '/editor/$projectId'
+  id:
+    | '__root__'
+    | '/_dashboard'
+    | '/_editor'
+    | '/_marketing'
+    | '/_dashboard/projects'
+    | '/_marketing/'
+    | '/_editor/editor/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
+  EditorRouteRoute: typeof EditorRouteRouteWithChildren
+  MarketingRouteRoute: typeof MarketingRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_marketing': {
+      id: '/_marketing'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof MarketingRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_editor': {
+      id: '/_editor'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof EditorRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof DashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_marketing/': {
+      id: '/_marketing/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof MarketingIndexRouteImport
+      parentRoute: typeof MarketingRouteRoute
+    }
+    '/_dashboard/projects': {
+      id: '/_dashboard/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof DashboardProjectsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/_editor/editor/$projectId': {
+      id: '/_editor/editor/$projectId'
+      path: '/editor/$projectId'
+      fullPath: '/editor/$projectId'
+      preLoaderRoute: typeof EditorEditorProjectIdRouteImport
+      parentRoute: typeof EditorRouteRoute
     }
   }
 }
 
+interface DashboardRouteRouteChildren {
+  DashboardProjectsRoute: typeof DashboardProjectsRoute
+}
+
+const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardProjectsRoute: DashboardProjectsRoute,
+}
+
+const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
+  DashboardRouteRouteChildren,
+)
+
+interface EditorRouteRouteChildren {
+  EditorEditorProjectIdRoute: typeof EditorEditorProjectIdRoute
+}
+
+const EditorRouteRouteChildren: EditorRouteRouteChildren = {
+  EditorEditorProjectIdRoute: EditorEditorProjectIdRoute,
+}
+
+const EditorRouteRouteWithChildren = EditorRouteRoute._addFileChildren(
+  EditorRouteRouteChildren,
+)
+
+interface MarketingRouteRouteChildren {
+  MarketingIndexRoute: typeof MarketingIndexRoute
+}
+
+const MarketingRouteRouteChildren: MarketingRouteRouteChildren = {
+  MarketingIndexRoute: MarketingIndexRoute,
+}
+
+const MarketingRouteRouteWithChildren = MarketingRouteRoute._addFileChildren(
+  MarketingRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  DashboardRouteRoute: DashboardRouteRouteWithChildren,
+  EditorRouteRoute: EditorRouteRouteWithChildren,
+  MarketingRouteRoute: MarketingRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
