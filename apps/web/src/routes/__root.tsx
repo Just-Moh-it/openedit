@@ -83,11 +83,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<Providers>
-				<body className="bg-background font-display text-foreground">
-					{children}
-					<Toaster richColors />
-					<Scripts />
-				</body>
+				{children}
+				<Toaster richColors />
+				<Scripts />
 			</Providers>
 		</html>
 	);

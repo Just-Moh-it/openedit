@@ -47,7 +47,7 @@ export const Feature = ({ children, animationDelay }: FeatureProps) => {
 			style={{ animationDelay: `${animationDelay}s` }}
 		>
 			{/* Orange Bullet */}
-			<div className="mb-6 h-4 w-4 rounded-full bg-primary transition-transform duration-200 group-hover:scale-110" />
+			<div className="mb-6 h-4 w-4 rounded-full bg-orange-600 transition-transform duration-200 group-hover:scale-110" />
 
 			{/* Feature Content */}
 			{children}

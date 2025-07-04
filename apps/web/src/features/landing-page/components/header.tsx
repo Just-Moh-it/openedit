@@ -1,5 +1,5 @@
-import { OpenEditLogo } from "@/assets/logo";
 import { Link } from "@tanstack/react-router";
+import { OpenEditLogo } from "@/assets/logo";
 
 export const Header = () => {
 	return (
@@ -17,7 +17,7 @@ export const Header = () => {
 					<nav className="space-x-8 md:flex">
 						<Link
 							to="/"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
 						>
 							HOME
 						</Link>
@@ -25,7 +25,7 @@ export const Header = () => {
 							href="https://x.com/openeditapp"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
 						>
 							𝕏
 						</a>
@@ -33,7 +33,7 @@ export const Header = () => {
 							href="https://github.com/just-moh-it/openedit"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
 						>
 							GitHub
 						</a>

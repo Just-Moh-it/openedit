@@ -79,7 +79,11 @@ export function WaitlistForm() {
 						</FormItem>
 					)}
 				/>
-				<Button type="submit" disabled={mutation.isPending}>
+				<Button
+					type="submit"
+					disabled={mutation.isPending}
+					className="bg-orange-600 hover:bg-orange-600"
+				>
 					{mutation.isPending ? "Joining..." : "Join waitlist"}
 				</Button>
 			</form>

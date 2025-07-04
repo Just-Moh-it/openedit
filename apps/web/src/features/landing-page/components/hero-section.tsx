@@ -29,8 +29,8 @@ export const HeroSection = () => {
 
 						<div className="text-muted-foreground text-sm">
 							<span className="relative mr-3 inline-flex size-2.5">
-								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-								<span className="relative inline-flex size-2.5 rounded-full bg-primary" />
+								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-600 opacity-75" />
+								<span className="relative inline-flex size-2.5 rounded-full bg-orange-600" />
 							</span>
 							<strong className="inline font-semibold text-foreground">
 								{isLoading ? (

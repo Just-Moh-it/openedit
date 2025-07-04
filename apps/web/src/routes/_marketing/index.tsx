@@ -4,7 +4,7 @@ import { HeroSection } from "@/features/landing-page/components/hero-section";
 import { HighlightSection } from "@/features/landing-page/components/highlight-section";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_marketing/")({
 	component: RouteComponent,
 });
 

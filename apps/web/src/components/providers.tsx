@@ -1,7 +1,9 @@
-import { clientEnv } from "@/lib/env/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PostHogProvider } from "posthog-js/react";
 import { useState } from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { clientEnv } from "@/lib/env/client";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	const [queryClient] = useState(
@@ -26,16 +28,21 @@ export function Providers({ children }: { children: React.ReactNode }) {
 	);
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<PostHogProvider
-				apiKey={clientEnv.VITE_PUBLIC_POSTHOG_KEY}
-				options={{
-					api_host: clientEnv.VITE_PUBLIC_POSTHOG_HOST,
-					defaults: "2025-05-24",
-				}}
-			>
-				{children}
-			</PostHogProvider>
-		</QueryClientProvider>
+		// Moved TooltipProvider to global provider to prevent re-renders
+		<TooltipProvider>
+			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				<QueryClientProvider client={queryClient}>
+					<PostHogProvider
+						apiKey={clientEnv.VITE_PUBLIC_POSTHOG_KEY}
+						options={{
+							api_host: clientEnv.VITE_PUBLIC_POSTHOG_HOST,
+							defaults: "2025-05-24",
+						}}
+					>
+						{children}
+					</PostHogProvider>
+				</QueryClientProvider>
+			</ThemeProvider>
+		</TooltipProvider>
 	);
 }
