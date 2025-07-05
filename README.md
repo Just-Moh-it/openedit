@@ -25,12 +25,34 @@ Ensure you have the following installed:
    bun install
    ```
 
-3. **Run the development server**:
+3. **Change directory**:
    ```bash
-   bun dev
+   cd apps/web
    ```
 
-The web application will be accessible at [http://localhost:3000](http://localhost:3000).
+4. **Setup database**:
+
+We use Drizzle ORM for database migrations and a postgres-compatible database schema for our database. Please use supabase or connect to a local postgres database and keep the connection url for the next step.
+
+5. **Setup environment variables**:
+   ```bash
+   cp .env.example .env
+   ```
+
+If you're still facing issues, please refer to [server-env.ts](./apps/web/src/lib/env/server.ts) and [client-env.ts](./apps/web/src/lib/env/client.ts) to see the required environment variables.
+
+
+6. **Run the database migrations**:
+   ```bash
+   bun db:migrate
+   ```
+
+7. **Run the development server**:
+   ```bash
+   bun dev 
+   ```
+
+The web application will be accessible at [http://localhost:3001](http://localhost:3001).
 
 ## Tech Stack
 

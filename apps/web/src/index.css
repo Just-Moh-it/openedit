@@ -16,7 +16,7 @@ body {
 	}
 }
 
-*:not([class*="select-"], [class*="select-"] *, form, input, textarea) {
+.editor *:not([class*="select-"], [class*="select-"] *, form, input, textarea) {
 	user-select: none;
 }
 

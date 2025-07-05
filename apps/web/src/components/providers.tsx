@@ -30,8 +30,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
 	return (
 		// Moved TooltipProvider to global provider to prevent re-renders
 		<TooltipProvider>
-			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-				<QueryClientProvider client={queryClient}>
+			<QueryClientProvider client={queryClient}>
+				{clientEnv.VITE_PUBLIC_POSTHOG_KEY &&
+				clientEnv.VITE_PUBLIC_POSTHOG_HOST ? (
 					<PostHogProvider
 						apiKey={clientEnv.VITE_PUBLIC_POSTHOG_KEY}
 						options={{
@@ -41,8 +42,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
 					>
 						{children}
 					</PostHogProvider>
-				</QueryClientProvider>
-			</ThemeProvider>
+				) : (
+					children
+				)}
+			</QueryClientProvider>
 		</TooltipProvider>
 	);
 }

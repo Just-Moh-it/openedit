@@ -1,9 +1,9 @@
-import { db } from "@/db";
-import { waitlistUsersTable } from "@/db/schema";
-import { getClientIP, ratelimit } from "@/lib/ratelimit";
 import { getHeaders } from "@tanstack/react-start/server";
 import { count, eq } from "drizzle-orm";
 import { nanoid } from "nanoid";
+import { db } from "@/db";
+import { waitlistUsersTable } from "@/db/schema";
+import { getClientIP, ratelimit } from "@/lib/ratelimit";
 
 export async function handleJoinWaitlist(email: string) {
 	try {

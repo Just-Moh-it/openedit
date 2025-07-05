@@ -1,17 +1,27 @@
-import { serverEnv } from "@/lib/env/server";
 import type { RequestHeaders } from "@tanstack/react-start/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { serverEnv } from "@/lib/env/server";
 
-export const ratelimit = new Ratelimit({
-	redis: new Redis({
-		url: serverEnv.UPSTASH_REDIS_REST_URL,
-		token: serverEnv.UPSTASH_REDIS_REST_TOKEN,
-	}),
-	limiter: Ratelimit.slidingWindow(5, "24 h"),
-	analytics: true,
-	prefix: "openedit:waitlist",
-});
+export const ratelimit =
+	serverEnv.UPSTASH_REDIS_REST_URL && serverEnv.UPSTASH_REDIS_REST_TOKEN
+		? new Ratelimit({
+				redis: new Redis({
+					url: serverEnv.UPSTASH_REDIS_REST_URL,
+					token: serverEnv.UPSTASH_REDIS_REST_TOKEN,
+				}),
+				limiter: Ratelimit.slidingWindow(5, "24 h"),
+				analytics: true,
+				prefix: "openedit:waitlist",
+			})
+		: {
+				limit: async (..._args: any[]) => {
+					console.warn(
+						"Rate limiting is not enabled. Please set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in your environment variables.",
+					);
+					return { success: true };
+				},
+			};
 
 export function getClientIP(headers: RequestHeaders): string {
 	// Try various headers that might contain the client IP
