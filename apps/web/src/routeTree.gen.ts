@@ -14,6 +14,7 @@ import { Route as EditorRouteRouteImport } from './routes/_editor/route'
 import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
 import { Route as MarketingIndexRouteImport } from './routes/_marketing/index'
 import { Route as DashboardProjectsRouteImport } from './routes/_dashboard/projects'
+import { Route as EditorEditorIndexRouteImport } from './routes/_editor/editor.index'
 import { Route as EditorEditorProjectIdRouteImport } from './routes/_editor/editor.$projectId'
 
 const MarketingRouteRoute = MarketingRouteRouteImport.update({
@@ -38,6 +39,11 @@ const DashboardProjectsRoute = DashboardProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const EditorEditorIndexRoute = EditorEditorIndexRouteImport.update({
+  id: '/editor/',
+  path: '/editor/',
+  getParentRoute: () => EditorRouteRoute,
+} as any)
 const EditorEditorProjectIdRoute = EditorEditorProjectIdRouteImport.update({
   id: '/editor/$projectId',
   path: '/editor/$projectId',
@@ -48,11 +54,13 @@ export interface FileRoutesByFullPath {
   '/projects': typeof DashboardProjectsRoute
   '/': typeof MarketingIndexRoute
   '/editor/$projectId': typeof EditorEditorProjectIdRoute
+  '/editor': typeof EditorEditorIndexRoute
 }
 export interface FileRoutesByTo {
   '/projects': typeof DashboardProjectsRoute
   '/': typeof MarketingIndexRoute
   '/editor/$projectId': typeof EditorEditorProjectIdRoute
+  '/editor': typeof EditorEditorIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,12 +70,13 @@ export interface FileRoutesById {
   '/_dashboard/projects': typeof DashboardProjectsRoute
   '/_marketing/': typeof MarketingIndexRoute
   '/_editor/editor/$projectId': typeof EditorEditorProjectIdRoute
+  '/_editor/editor/': typeof EditorEditorIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/projects' | '/' | '/editor/$projectId'
+  fullPaths: '/projects' | '/' | '/editor/$projectId' | '/editor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/projects' | '/' | '/editor/$projectId'
+  to: '/projects' | '/' | '/editor/$projectId' | '/editor'
   id:
     | '__root__'
     | '/_dashboard'
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
     | '/_dashboard/projects'
     | '/_marketing/'
     | '/_editor/editor/$projectId'
+    | '/_editor/editor/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -121,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardProjectsRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/_editor/editor/': {
+      id: '/_editor/editor/'
+      path: '/editor'
+      fullPath: '/editor'
+      preLoaderRoute: typeof EditorEditorIndexRouteImport
+      parentRoute: typeof EditorRouteRoute
+    }
     '/_editor/editor/$projectId': {
       id: '/_editor/editor/$projectId'
       path: '/editor/$projectId'
@@ -145,10 +162,12 @@ const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
 
 interface EditorRouteRouteChildren {
   EditorEditorProjectIdRoute: typeof EditorEditorProjectIdRoute
+  EditorEditorIndexRoute: typeof EditorEditorIndexRoute
 }
 
 const EditorRouteRouteChildren: EditorRouteRouteChildren = {
   EditorEditorProjectIdRoute: EditorEditorProjectIdRoute,
+  EditorEditorIndexRoute: EditorEditorIndexRoute,
 }
 
 const EditorRouteRouteWithChildren = EditorRouteRoute._addFileChildren(
