@@ -16,21 +16,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The Software is provided to you under the MIT License, with the following additional condition:
 
-> **You may not use the Software or any derivative works for commercial purposes without prior written permission from the copyright holder.**
+> **You may not sell, license, or redistribute the Software or any derivative works for commercial purposes without prior written permission from the copyright holder.**
 
-For purposes of this clause, **“commercial purposes”** means:
-- Selling or licensing the Software (or modified versions) to third parties;
-- Offering the Software as part of a commercial SaaS, PaaS, or other cloud-based offering;
-- Providing paid support, consulting, or hosting services related to the Software;
-- Any internal use by a company that contributes to a for-profit product, service, or revenue-generating process.
+**Important Clarification**: This restriction applies only to the **distribution and sale of the Software itself**, not to the **commercial use of the Software's output or functionality**.
+
+**You MAY use the Software commercially to**:
+- Create videos, content, or other outputs for commercial purposes (including for agencies, clients, or business use)
+- Use the Software internally in your business operations
+- Generate revenue from content created using the Software
+- Use both the hosted version and self-hosted deployments for any commercial content creation
+
+**You MAY NOT do commercially without permission**:
+- Sell or license the Software (or modified versions) to third parties
+- Offer the Software as part of a commercial SaaS, PaaS, or other cloud-based offering
+- Provide paid support, consulting, or hosting services related to the Software itself
+- Redistribute the Software as part of a commercial product or service
+
+If you are interested in creating a commercial product using the Software, please contact us at [commercial@openeditapp.com](mailto:commercial@openeditapp.com) to discuss a commercial license.
 
 Any license notice or attribution required by the MIT License must also include this Commons Clause.
 
-This restriction **does not apply** to the original copyright holder’s own use or deployment of the Software (e.g., offering a hosted version with paid plans).
+This restriction **does not apply** to the original copyright holder's own use or deployment of the Software (e.g., offering a hosted version with paid plans).
 
 ---
 
-**Software:** All files, code, and assets in the GitHub repository “openedit”  
+**Software:** All files, code, and assets in the GitHub repository "openedit"  
 **License:** MIT + Commons Clause Restriction  
 **Licensor:** Mohit Yadav
 
