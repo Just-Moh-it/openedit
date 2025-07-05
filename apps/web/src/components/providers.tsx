@@ -6,46 +6,46 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { clientEnv } from "@/lib/env/client";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            staleTime: 60 * 1000, // 1 minute
-            retry: (failureCount, error) => {
-              // Don't retry on 4xx errors
-              if (error && typeof error === "object" && "status" in error) {
-                const status = error.status as number;
-                if (status >= 400 && status < 500) {
-                  return false;
-                }
-              }
-              return failureCount < 3;
-            },
-          },
-        },
-      })
-  );
+	const [queryClient] = useState(
+		() =>
+			new QueryClient({
+				defaultOptions: {
+					queries: {
+						staleTime: 60 * 1000, // 1 minute
+						retry: (failureCount, error) => {
+							// Don't retry on 4xx errors
+							if (error && typeof error === "object" && "status" in error) {
+								const status = error.status as number;
+								if (status >= 400 && status < 500) {
+									return false;
+								}
+							}
+							return failureCount < 3;
+						},
+					},
+				},
+			}),
+	);
 
-  return (
-    // Moved TooltipProvider to global provider to prevent re-renders
-    <TooltipProvider>
-      <QueryClientProvider client={queryClient}>
-        {clientEnv.VITE_PUBLIC_POSTHOG_KEY &&
-        clientEnv.VITE_PUBLIC_POSTHOG_HOST ? (
-          <PostHogProvider
-            apiKey={clientEnv.VITE_PUBLIC_POSTHOG_KEY}
-            options={{
-              api_host: clientEnv.VITE_PUBLIC_POSTHOG_HOST,
-              defaults: "2025-05-24",
-            }}
-          >
-            {children}
-          </PostHogProvider>
-        ) : (
-          children
-        )}
-      </QueryClientProvider>
-    </TooltipProvider>
-  );
+	return (
+		// Moved TooltipProvider to global provider to prevent re-renders
+		<TooltipProvider>
+			<QueryClientProvider client={queryClient}>
+				{clientEnv.VITE_PUBLIC_POSTHOG_KEY &&
+				clientEnv.VITE_PUBLIC_POSTHOG_HOST ? (
+					<PostHogProvider
+						apiKey={clientEnv.VITE_PUBLIC_POSTHOG_KEY}
+						options={{
+							api_host: clientEnv.VITE_PUBLIC_POSTHOG_HOST,
+							defaults: "2025-05-24",
+						}}
+					>
+						{children}
+					</PostHogProvider>
+				) : (
+					children
+				)}
+			</QueryClientProvider>
+		</TooltipProvider>
+	);
 }
