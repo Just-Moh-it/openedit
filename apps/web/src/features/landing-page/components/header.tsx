@@ -1,49 +1,49 @@
 import { Link } from "@tanstack/react-router";
 import { OpenEditLogo } from "@/assets/logo";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const Header = () => {
-	return (
-		<header className="border-b">
-			<div className="mx-auto max-w-7xl px-6 py-4">
-				<div className="flex items-center justify-between">
-					{/* Logo */}
-					<div className="font-mono font-semibold text-industrial-black text-lg lowercase">
-						<Link to="/">
-							<OpenEditLogo />
-						</Link>
-					</div>
+  return (
+    <header>
+      <div className="mx-auto px-4 py-3 xl:py-3.5">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="font-mono font-semibold text-lg lowercase">
+            <Link to="/">
+              <OpenEditLogo />
+            </Link>
+          </div>
 
-					{/* Navigation */}
-					<nav className="space-x-8 md:flex">
-						<Link
-							to="/"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
-						>
-							HOME
-						</Link>
-						<a
-							href="https://x.com/openeditapp"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
-						>
-							𝕏
-						</a>
-						<a
-							href="https://github.com/just-moh-it/openedit"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="font-mono font-semibold text-industrial-black text-sm uppercase tracking-wide transition-colors duration-200 hover:text-orange-600"
-						>
-							GitHub
-						</a>
-					</nav>
-				</div>
-
-				<div className="mt-3 font-mono text-muted-foreground text-xs">
-					The open source premiere pro alternative
-				</div>
-			</div>
-		</header>
-	);
+          {/* Navigation */}
+          <nav className="flex gap-2">
+            {/* <a
+              href="https://github.com/just-moh-it/openedit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "ghost" })}
+            >
+              Contributors
+            </a> */}
+            <a
+              href="https://github.com/just-moh-it/openedit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "ghost" })}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://x.com/openeditapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants(), "bg-cyan-600 hover:bg-cyan-600")}
+            >
+              Follow for updates on 𝕏
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
 };
